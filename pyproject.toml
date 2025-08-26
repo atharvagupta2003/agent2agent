@@ -1,7 +1,23 @@
 [project]
 name = "agent2agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "Exploring interoperability between different agentic frameworks"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "openai>=1.0.0",
+    "youtube_transcript_api>=0.6.0",
+    "agno>=0.1.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+]
+
+[project.scripts]
+youtube-agent = "agent2agent.src.subagents.agno.youtube_agent:main"
