@@ -1,0 +1,40 @@
+# Orchestrator HTTP tests
+
+### Health check
+GET http://localhost:8000/
+
+### Auto-select agent (YouTube)
+POST http://localhost:8000/delegate
+Content-Type: application/json
+
+{
+  "query": "analyze this youtube video https://www.youtube.com/watch?v=BXsAxO-g_SA&ab_channel=Iminmemomschar"
+}
+
+### Explicit YouTube agent
+POST http://localhost:8000/delegate
+Content-Type: application/json
+
+{
+  "query": "Please analyze this YouTube video in detail: https://www.youtube.com/watch?v=BXsAxO-g_SA",
+  "agent_name": "YouTube Analysis Agent"
+}
+
+### Research query (LangGraph)
+POST http://localhost:8000/delegate
+Content-Type: application/json
+
+{
+  "query": "research on global climate change issues"
+}
+
+### Research query with explicit agent
+POST http://localhost:8000/delegate
+Content-Type: application/json
+
+{
+  "query": "Provide a brief on current global economic challenges",
+  "agent_name": "LangGraph Research Agent"
+}
+
+
